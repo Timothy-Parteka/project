@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>HERE IS THE LIST OF APPROVED APPLICANTS PLUS THEIR SPONSORS</h4>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h4>APPLICANT DETAILS</h4>
+
+
+<!-- created a table for approved applicants -->
+<table>
+  <tr>
+    <th>SPONSORED APPLICANT</th>
+    <th>SPONSOR FIRST NAME</th>
+    <th>SPONSOR LAST NAME</th>
+    <th>SPONSOR OCCUPATION</th>
+  </tr>
+  {% for x in applicants_sponsored_list %}
+  <tr>
+    <td>{{ x.sponsored_applicant }}</td>
+    <td>{{ x.first_name }}</td>
+    <td>{{ x.last_name }}</td>
+    <td>{{ x.occupation }}</td>
+
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock content %}

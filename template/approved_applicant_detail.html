@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h4>APPLICANT DETAILS</h4>
+
+
+
+<table>
+  <tr>
+    <th>FIRST NAME</th>
+    <th>LAST NAME</th>
+    <th>PHONE NUMBER</th>
+    <th>EMAIL ADDRESS</th>
+  </tr>
+  <tr>
+    <td>{{ applicantinfo.first_name }}</td>
+    <td>{{ applicantinfo.last_name }}</td>
+    <td>{{ applicantinfo.phone_number }}</td>
+    <td>{{ applicantinfo.email_address }}</td>
+  </tr>
+
+</table>
+
+{% endblock content %}

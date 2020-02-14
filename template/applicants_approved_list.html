@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h4>HERE IS A LIST OF APPLICANTS APPROVED</h4>
+
+  {% for a in applicants_approved_list %}
+   <div class = "card">
+     <div class = "card-body">
+      {{ a.applicant_info }}
+
+    </div>
+
+    <div class="card-footer text-center text-muted">
+      <a href="{% url 'applicantdetail' a.pk  %}">View Details</a>
+    </div>
+
+  </div>
+
+  <br />
+
+  {% endfor %}
+
+{% endblock content %}

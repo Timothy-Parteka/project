@@ -1,0 +1,27 @@
+<!-- this template extends base.html -->
+ {% extends 'base.html' %}
+
+
+{% block content %}
+
+  <div class= "jumbotron">
+
+  {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+
+
+  <h1 class ="display-4">WELCOME TO OUR STUDENTS SPONSORSHIP WEB APPLICATION</h1>
+  <!-- <p class ="lead">NAVIGATE TO THE APPLY LINK TO APPLY FOR SPONSORSHIP.</p> -->
+  <!-- <p><a href="{% url 'logout' %}">Log Out</a></p>s -->
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href= "{% url 'application' %}" role="button">APPLY</a>
+  </p>
+
+  </div>
+ {% else %}
+  <p>YOU ARE NOT LOGGED IN!!</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+ {% endif %}
+
+{% endblock content %}
