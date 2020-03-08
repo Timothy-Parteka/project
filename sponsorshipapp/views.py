@@ -1,4 +1,10 @@
+
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.shortcuts import render
+
 
 from django.http import HttpResponseRedirect
 
@@ -14,7 +20,7 @@ from .models import ApplicantInfo, ApprovedApplicant, SponsporsInfo
 # Create your views here.
 
 
-def application(request):
+def application(LoginRequiredMixin, request):
 
     context = {}
 
@@ -28,7 +34,7 @@ def application(request):
     return render(request, 'application_form.html',context)
 
 # ApplicantsApprovedView inherits ListView(generic views)
-class ApplicantsApprovedView(ListView):
+class ApplicantsApprovedView(LoginRequiredMixin, ListView):
     # added the model to use
     model = ApprovedApplicant
 
@@ -40,7 +46,7 @@ class ApplicantsApprovedView(ListView):
 
 
 # ApplicantsSponsoredView inherits ListView(generic views)
-class ApplicantsSponsoredView(ListView):
+class ApplicantsSponsoredView(LoginRequiredMixin, ListView):
     # added the model to use
     model = SponsporsInfo
 
@@ -52,7 +58,7 @@ class ApplicantsSponsoredView(ListView):
 
 
 # ApplicantsApprovedDetailView inherits DetailView(generic views)
-class ApplicantsApprovedDetailView(DetailView):
+class ApplicantsApprovedDetailView(LoginRequiredMixin, DetailView):
     # added the model to use
     model = ApplicantInfo
 
