@@ -20,7 +20,7 @@ from .models import ApplicantInfo, ApprovedApplicant, SponsporsInfo
 # Create your views here.
 
 
-def application(LoginRequiredMixin, request):
+def application(request):
 
     context = {}
 
