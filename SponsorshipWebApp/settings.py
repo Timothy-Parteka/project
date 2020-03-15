@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'sponsorshipapp',
     'accounts',
-    # third party app
+    #django crispy_forms is a third party app.Run 'pip install django-crispy-forms' to install the app.
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
